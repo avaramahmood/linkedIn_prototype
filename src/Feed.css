@@ -1,44 +1,261 @@
 .feed {
-  flex: 0.6;
-  margin: 0 20px;
-}
-
-.feed__inputContainer {
-  background-color: white;
-  padding: 10px;
-  padding-bottom: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-.feed__input {
-  border: 1px solid lightgray;
-  border-radius: 30px;
   display: flex;
-  padding: 10px;
-  color: gray;
-  padding-left: 15px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.feed__composer {
+  background-color: var(--card);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 16px;
+}
+
+.feed__composerTop {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.feed__composerAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.feed__composerButton {
+  flex: 1;
+  text-align: left;
+  padding: 12px 16px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 30px;
+  font-size: 14px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.feed__composerButton:hover {
+  background-color: var(--secondary);
+  border-color: var(--foreground);
+}
+
+.feed__composerActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.feed__composerAction {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.feed__composerAction:hover {
+  background-color: var(--secondary);
+}
+
+.feed__composerAction svg {
+  width: 20px;
+  height: 20px;
+}
+
+.feed__composerAction--photo svg { color: #378fe9; }
+.feed__composerAction--video svg { color: #c37d16; }
+.feed__composerAction--event svg { color: #0a6640; }
+.feed__composerAction--article svg { color: #e16745; }
+
+.feed__sortBar {
+  background-color: var(--card);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.feed__sortLabel {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.feed__sortLabel span {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.feed__sortButton {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: none;
+  font-size: 14px;
   cursor: pointer;
 }
 
-.feed__input > form {
+.feed__sortButton:hover {
+  background-color: var(--secondary);
+}
+
+.feed__modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 2000;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feed__modal {
+  background-color: var(--card);
+  border-radius: 8px;
   width: 100%;
-}
-
-.feed__input > form > input {
-  border: none;
-  flex: 1;
-  margin-left: 10px;
-  outline-width: 0;
-  font-weight: 600;
-}
-
-.feed__input > form > button {
-  display: none;
-}
-
-.feed__inputOptions {
+  max-width: 552px;
+  max-height: 85vh;
+  overflow: hidden;
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.feed__modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.feed__modalHeader h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.feed__modalClose {
+  padding: 4px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  color: var(--muted-foreground);
+}
+
+.feed__modalClose:hover {
+  background-color: var(--secondary);
+}
+
+.feed__modalBody {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.feed__modalUser {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.feed__modalUser img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.feed__modalUser h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.feed__modalUser button {
+  font-size: 12px;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+}
+
+.feed__modalTextarea {
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  outline: none;
+  resize: none;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--foreground);
+  font-family: inherit;
+}
+
+.feed__modalTextarea::placeholder {
+  color: var(--muted-foreground);
+}
+
+.feed__modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.feed__modalActions {
+  display: flex;
+  gap: 4px;
+}
+
+.feed__modalActions button {
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.feed__modalActions button:hover {
+  background-color: var(--secondary);
+}
+
+.feed__modalPost {
+  padding: 8px 20px;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feed__modalPost:hover {
+  opacity: 0.9;
+}
+
+.feed__modalPost:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

@@ -1,104 +1,462 @@
 .sidebar {
   position: sticky;
-  top: 80px;
-  flex: 0.2;
-  border-radius: 10px;
-  text-align: center;
+  top: 68px;
   height: fit-content;
 }
 
-.sidebar__avatar {
-  margin-bottom: 10px;
+.sidebar__card {
+  background-color: var(--card);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  margin-bottom: 8px;
 }
 
-.sidebar__top > h4 {
-  color: gray;
-  font-size: 12px;
+.sidebar__profile {
+  text-align: center;
+  padding: 12px;
 }
 
-.sidebar__top > h2 {
-  font-size: 18px;
-}
-
-.sidebar__top {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid lightgray;
-  border-bottom: 0;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  background-color: white;
-  padding-bottom: 10px;
-}
-
-.sidebar__top > img {
-  margin-bottom: -20px;
+.sidebar__profile-bg {
   width: 100%;
-  height: 60px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  height: 54px;
+  background: linear-gradient(135deg, #0177b7 0%, #00a0dc 100%);
+}
+
+.sidebar__avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--card);
+  margin-top: -36px;
   object-fit: cover;
+  background-color: var(--card);
 }
 
-.sidebar__stat {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.sidebar__stats p {
-  color: gray;
-  font-size: 13px;
+.sidebar__name {
+  font-size: 16px;
   font-weight: 600;
+  margin-top: 8px;
+  color: var(--foreground);
 }
 
-.sidebar__statNumber {
-  font-weight: bold;
-  color: #0a66c2 !important;
+.sidebar__headline {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin-top: 4px;
 }
 
 .sidebar__stats {
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid lightgray;
-  background-color: white;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.sidebar__bottom {
+  border-top: 1px solid var(--border);
+  padding: 12px;
   text-align: left;
-  padding: 10px;
-  border: 1px solid lightgray;
-  background-color: white;
-  border-radius: 10px;
-  margin-top: 10px;
 }
 
-.sidebar__bottom > p {
+.sidebar__stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 0;
   font-size: 13px;
-  padding-bottom: 10px;
+}
+
+.sidebar__stat:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sidebar__statLabel {
+  color: var(--muted-foreground);
+}
+
+.sidebar__statValue {
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.sidebar__statValue--muted {
+  color: var(--muted-foreground);
+  font-weight: 400;
+}
+
+.sidebar__cardPadding {
+  padding: 12px;
+}
+
+.sidebar__cardTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.sidebar__cardTitle span {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.sidebar__cardTitle span:hover {
+  text-decoration: underline;
 }
 
 .sidebar__recentItem {
   display: flex;
+  align-items: center;
+  padding: 8px 12px;
   font-size: 13px;
-  color: gray;
-  font-weight: bolder;
+  color: var(--muted-foreground);
   cursor: pointer;
-  margin-bottom: 5px;
-  padding: 5px;
 }
 
 .sidebar__recentItem:hover {
-  background-color: whitesmoke;
-  border-radius: 10px;
-  cursor: pointer;
-  color: black;
+  background-color: var(--secondary);
+  color: var(--foreground);
 }
 
 .sidebar__hash {
-  margin-right: 10px;
-  margin-left: 5px;
+  margin-right: 8px;
+  font-size: 16px;
+  color: var(--muted-foreground);
+}
+
+.sidebar__groupItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.sidebar__groupItem:hover {
+  background-color: var(--secondary);
+}
+
+.sidebar__groupIcon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.sidebar__groupName {
+  font-size: 13px;
+  color: var(--foreground);
+}
+
+.sidebar__cardFooter {
+  padding: 12px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+}
+
+.sidebar__cardFooter:hover {
+  background-color: var(--secondary);
+  cursor: pointer;
+}
+
+.sidebar__cardFooter span {
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+.sidebar__discover {
+  margin-top: 8px;
+}
+
+.sidebar__discoverTitle {
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.sidebar__discoverItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  cursor: pointer;
+}
+
+.sidebar__discoverItem:hover {
+  background-color: var(--secondary);
+}
+
+.sidebar__discoverItem svg {
+  width: 20px;
+  height: 20px;
+  color: var(--muted-foreground);
+}
+
+/* ========================================
+   GAMIFICATION SECTION
+   ======================================== */
+
+.sidebar__gamification {
+  padding: 0;
+  overflow: visible;
+}
+
+/* XP Header */
+.sidebar__xpHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px 14px 12px;
+  background: linear-gradient(135deg, rgba(10,102,194,0.05) 0%, rgba(10,102,194,0.02) 100%);
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar__levelBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sidebar__levelIcon {
+  font-size: 28px;
+  line-height: 1;
+  animation: levelBounce 2s ease infinite;
+}
+
+@keyframes levelBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.sidebar__levelInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__levelName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.1;
+}
+
+.sidebar__xpCount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.sidebar__nextLevel {
+  font-size: 11px;
+  color: var(--muted-foreground);
+  padding: 3px 8px;
+  background: var(--secondary);
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+/* XP Progress Bar */
+.sidebar__xpBarWrap {
+  padding: 10px 14px 6px;
+}
+
+.sidebar__xpBar {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--secondary);
+  overflow: hidden;
+  position: relative;
+}
+
+.sidebar__xpBarFill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary), #378fe9);
+  transition: width 1s ease;
+  position: relative;
+  animation: barShimmer 2s ease infinite;
+}
+
+@keyframes barShimmer {
+  0% { filter: brightness(1); }
+  50% { filter: brightness(1.15); }
+  100% { filter: brightness(1); }
+}
+
+.sidebar__xpBarLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--muted-foreground);
+  margin-top: 4px;
+}
+
+/* Section Title */
+.sidebar__sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--muted-foreground);
+  margin: 0 0 10px;
+}
+
+/* Badges */
+.sidebar__badgesSection {
+  padding: 14px 14px 8px;
+  border-top: 1px solid var(--border);
+}
+
+.sidebar__badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sidebar__badge {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.sidebar__badge.earned {
+  background: linear-gradient(135deg, rgba(10,102,194,0.1), rgba(55,143,233,0.1));
+  box-shadow: 0 2px 8px rgba(10, 102, 194, 0.1);
+}
+
+.sidebar__badge.earned:hover {
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(10, 102, 194, 0.2);
+}
+
+.sidebar__badge.locked {
+  opacity: 0.4;
+  filter: grayscale(1);
+}
+
+.sidebar__badge.locked:hover {
+  opacity: 0.7;
+  filter: grayscale(0.5);
+}
+
+.sidebar__badgeIcon {
+  font-size: 20px;
+}
+
+.sidebar__badgeTooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 14px;
+  min-width: 160px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  z-index: 100;
+  text-align: center;
+  animation: tooltipPop 0.2s ease;
+}
+
+@keyframes tooltipPop {
+  from { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+.sidebar__badgeTooltip strong {
+  display: block;
+  font-size: 13px;
+  color: var(--foreground);
+  margin-bottom: 3px;
+}
+
+.sidebar__badgeTooltip span {
+  display: block;
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+
+.sidebar__badgeLocked {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #f59e0b !important;
+}
+
+/* XP History */
+.sidebar__xpHistory {
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.sidebar__xpItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.sidebar__xpItem:last-child {
+  border-bottom: none;
+}
+
+.sidebar__xpItemInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar__xpAction {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.sidebar__xpTime {
+  font-size: 11px;
+  color: var(--muted-foreground);
+}
+
+.sidebar__xpGain {
+  font-size: 13px;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Student Mode - Gamification */
+.student-active .sidebar__xpHeader {
+  background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, rgba(4,120,87,0.04) 100%);
+}
+
+.student-active .sidebar__xpCount {
+  color: #10b981;
+}
+
+.student-active .sidebar__xpBarFill {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.student-active .sidebar__badge.earned {
+  background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(4,120,87,0.1));
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.1);
+}
+
+.student-active .sidebar__badge.earned:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.25);
 }

@@ -2,22 +2,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 20px;
-  color: gray;
+  justify-content: center;
+  padding: 4px 12px;
+  min-width: 80px;
+  height: 52px;
+  color: var(--muted-foreground);
   cursor: pointer;
+  position: relative;
+  background: none;
+  border: none;
 }
 
 .headerOption:hover {
-  color: black;
+  color: var(--foreground);
 }
 
-.headerOption__title{
+.headerOption svg {
+  width: 24px;
+  height: 24px;
+}
+
+.headerOption__title {
   font-size: 12px;
-  font-weight: 400;
+  margin-top: 2px;
 }
 
-.headerOption__icon{
-  object-fit:contain;
-  height : 25px !important;
-  width : 25px !important;
+.headerOption:hover .headerOption__title {
+  color: var(--foreground);
+}
+
+.headerOption.active {
+  color: var(--foreground);
+}
+
+.headerOption.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 24px);
+  height: 2px;
+  background-color: var(--foreground);
 }

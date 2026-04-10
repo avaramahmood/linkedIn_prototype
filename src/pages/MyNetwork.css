@@ -1,0 +1,434 @@
+.myNetwork {
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+.myNetwork__header {
+  background: white;
+  padding: 12px 24px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.myNetwork__back {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.myNetwork__back:hover {
+  background: var(--secondary);
+}
+
+.myNetwork__headerContent h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0;
+}
+
+.myNetwork__body {
+  max-width: 684px;
+  margin: 0 auto;
+  padding: 20px 24px;
+}
+
+.myNetwork__stats {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.myNetwork__stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.myNetwork__statValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.myNetwork__statLabel {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.myNetwork__tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+
+.myNetwork__tab {
+  padding: 12px 16px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+
+.myNetwork__tab:hover {
+  color: var(--foreground);
+}
+
+.myNetwork__tab.active {
+  color: var(--foreground);
+  border-bottom-color: var(--foreground);
+}
+
+.myNetwork__pipeline {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.myNetwork__pipeline h3 {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 12px;
+}
+
+.myNetwork__pipelineSteps {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.myNetwork__pipelineStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  background: var(--secondary);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.myNetwork__pipelineNum {
+  width: 20px;
+  height: 20px;
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+}
+
+.myNetwork__pipelineDesc {
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+.myNetwork__pipelineArrow {
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+.myNetwork__pipelineFinal {
+  background: color-mix(in srgb, var(--primary) 10%, var(--card));
+  color: var(--primary);
+}
+
+.myNetwork__peopleHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.myNetwork__peopleCount {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.myNetwork__pipelineToggle {
+  font-size: 12px;
+  color: var(--primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.myNetwork__pipelineToggle:hover {
+  text-decoration: underline;
+}
+
+.myNetwork__empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--muted-foreground);
+}
+
+.myNetwork__empty span {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Person Card */
+.personCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.personCard__header {
+  display: flex;
+  gap: 12px;
+}
+
+.personCard__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.personCard__info {
+  flex: 1;
+}
+
+.personCard__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 2px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.personCard__verified {
+  color: #0a66c2;
+  font-size: 12px;
+}
+
+.personCard__headline {
+  font-size: 12px;
+  color: var(--foreground);
+  margin: 0 0 4px;
+}
+
+.personCard__meta {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.personCard__dot {
+  margin: 0 4px;
+}
+
+.personCard__skills {
+  display: flex;
+  gap: 6px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.personCard__skill {
+  font-size: 11px;
+  padding: 2px 8px;
+  background: var(--secondary);
+  border-radius: 10px;
+  color: var(--muted-foreground);
+}
+
+.personCard__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.personCard__connect {
+  flex: 1;
+  padding: 8px 16px;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.personCard__connect:hover {
+  background: #004182;
+}
+
+.personCard__ignore {
+  padding: 8px 16px;
+  background: white;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.personCard__ignore:hover {
+  background: var(--secondary);
+}
+
+/* Invitation Card */
+.inviteCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.inviteCard__avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.inviteCard__info {
+  flex: 1;
+}
+
+.inviteCard__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 2px;
+}
+
+.inviteCard__headline {
+  font-size: 12px;
+  color: var(--foreground);
+  margin: 0 0 4px;
+}
+
+.inviteCard__meta {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.inviteCard__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.inviteCard__accept {
+  padding: 6px 16px;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.inviteCard__accept:hover {
+  background: #004182;
+}
+
+.inviteCard__ignore {
+  padding: 6px 16px;
+  background: white;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.inviteCard__ignore:hover {
+  background: var(--secondary);
+}
+
+/* Student Mode */
+.student-active .myNetwork__header {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.student-active .myNetwork__header h1 {
+  color: white;
+}
+
+.student-active .myNetwork__back {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.3);
+  color: white;
+}
+
+.student-active .myNetwork__back:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+.student-active .personCard__avatar,
+.student-active .inviteCard__avatar {
+  background: linear-gradient(135deg, #10b981, #047857);
+}
+
+.student-active .personCard__connect,
+.student-active .inviteCard__accept {
+  background: #10b981;
+}
+
+.student-active .personCard__connect:hover,
+.student-active .inviteCard__accept:hover {
+  background: #047857;
+}
+
+.student-active .myNetwork__tab.active {
+  color: #10b981;
+  border-bottom-color: #10b981;
+}

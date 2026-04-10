@@ -1,0 +1,888 @@
+/* ========================================
+   MENTOR CONNECT - Premium Styles
+   ======================================== */
+
+.mentorConnect {
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+/* Header */
+.mentorConnect__header {
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+  padding: 24px 32px 32px;
+  color: white;
+}
+
+.mentorConnect__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+  backdrop-filter: blur(8px);
+}
+
+.mentorConnect__back:hover {
+  background: rgba(255,255,255,0.25);
+  transform: translateX(-2px);
+}
+
+.mentorConnect__headerContent h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+}
+
+.mentorConnect__headerContent p {
+  font-size: 16px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+/* Credits Bar */
+.mentorConnect__creditsBar {
+  max-width: 1128px;
+  margin: -16px auto 24px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.mentorConnect__creditsInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px 24px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+}
+
+.mentorConnect__creditsBadge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--muted-foreground);
+}
+
+.mentorConnect__creditsCount {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  animation: creditPulse 2s ease infinite;
+}
+
+@keyframes creditPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.mentorConnect__earnBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 2px solid var(--primary);
+  background: none;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mentorConnect__earnBtn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.mentorConnect__creditsHint {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  text-align: center;
+  margin-top: 8px;
+}
+
+/* Category Tabs */
+.mentorConnect__categories {
+  display: flex;
+  gap: 8px;
+  max-width: 1128px;
+  margin: 0 auto 24px;
+  padding: 0 24px;
+  overflow-x: auto;
+}
+
+.mentorConnect__catTab {
+  padding: 10px 20px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--foreground);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.mentorConnect__catTab:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.mentorConnect__catTab.active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+/* Mentor Grid */
+.mentorConnect__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1128px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+}
+
+/* Mentor Card */
+.mentorCard {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  animation: cardFadeIn 0.5s ease backwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.mentorCard:nth-child(1) { animation-delay: 0.05s; }
+.mentorCard:nth-child(2) { animation-delay: 0.1s; }
+.mentorCard:nth-child(3) { animation-delay: 0.15s; }
+.mentorCard:nth-child(4) { animation-delay: 0.2s; }
+.mentorCard:nth-child(5) { animation-delay: 0.25s; }
+.mentorCard:nth-child(6) { animation-delay: 0.3s; }
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mentorCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.mentorCard__header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.mentorCard__avatarWrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.mentorCard__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  position: relative;
+  z-index: 1;
+}
+
+.mentorCard__avatarGlow {
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  right: -3px;
+  bottom: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #6366f1, #ec4899, #f59e0b, #10b981, #6366f1);
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 0;
+}
+
+.mentorCard:hover .mentorCard__avatarGlow {
+  opacity: 0.6;
+  animation: glowSpin 3s linear infinite;
+}
+
+@keyframes glowSpin {
+  to { transform: rotate(360deg); }
+}
+
+.mentorCard__name {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: var(--foreground);
+}
+
+.mentorCard__role {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  flex-wrap: wrap;
+}
+
+.mentorCard__companyLogo {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  object-fit: contain;
+}
+
+.mentorCard__companyName {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.mentorCard__bio {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin: 0 0 14px;
+  flex-grow: 1;
+}
+
+.mentorCard__expertise {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.mentorCard__expertiseTag {
+  padding: 4px 12px;
+  border-radius: 16px;
+  background: rgba(99, 102, 241, 0.08);
+  color: #6366f1;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Stars */
+.mentorCard__stars {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.mentorCard__stars span {
+  margin-left: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.mentorCard__stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.mentorCard__sessionCount {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  color: var(--muted-foreground);
+}
+
+/* Availability */
+.mentorCard__availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  background: var(--secondary);
+  border-radius: 10px;
+}
+
+.mentorCard__availLabel {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.mentorCard__availDots {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.mentorCard__availDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mentorCard__dayLabel {
+  font-size: 10px;
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+.mentorCard__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  transition: all 0.2s;
+}
+
+.mentorCard__dot.available {
+  background: #10b981;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+}
+
+/* Footer */
+.mentorCard__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.mentorCard__pricing {
+  display: flex;
+  gap: 8px;
+}
+
+.mentorCard__priceTag {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  padding: 4px 10px;
+  background: var(--secondary);
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.mentorCard__bookBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mentorCard__bookBtn:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: scale(1.03);
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.3);
+}
+
+.mentorCard__bookBtn.booked {
+  background: #10b981;
+  cursor: default;
+}
+
+/* Modal Overlay */
+.mentorConnect__modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.mentorConnect__modal {
+  background: var(--card);
+  border-radius: 20px;
+  padding: 32px;
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mentorConnect__modalClose {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted-foreground);
+  padding: 4px;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.mentorConnect__modalClose:hover {
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+.mentorConnect__bookingMentor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.mentorConnect__bookingMentor img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.mentorConnect__bookingMentor h3 {
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.mentorConnect__bookingMentor p {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.mentorConnect__stepTitle {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: var(--foreground);
+}
+
+.mentorConnect__sessionTypes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.mentorConnect__sessionCard {
+  background: var(--secondary);
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mentorConnect__sessionCard:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  transform: translateY(-2px);
+}
+
+.mentorConnect__sessionCard.selected {
+  border-color: #7c3aed;
+  background: rgba(124, 58, 237, 0.05);
+}
+
+.mentorConnect__sessionIcon {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.mentorConnect__sessionCard h5 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.mentorConnect__sessionCard p {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin: 0 0 8px;
+}
+
+.mentorConnect__creditCost {
+  font-size: 13px;
+  font-weight: 600;
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.1);
+  padding: 4px 10px;
+  border-radius: 8px;
+}
+
+.mentorConnect__nextBtn,
+.mentorConnect__confirmBtn,
+.mentorConnect__doneBtn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #7c3aed, #2563eb);
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mentorConnect__nextBtn:hover:not(:disabled),
+.mentorConnect__confirmBtn:hover:not(:disabled),
+.mentorConnect__doneBtn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.01);
+}
+
+.mentorConnect__nextBtn:disabled,
+.mentorConnect__confirmBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Time Slots */
+.mentorConnect__slotsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.mentorConnect__slot {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.mentorConnect__slot:hover {
+  border-color: #7c3aed;
+  color: #7c3aed;
+}
+
+.mentorConnect__slot.selected {
+  background: #7c3aed;
+  color: white;
+  border-color: #7c3aed;
+}
+
+.mentorConnect__bookingSummary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin-bottom: 12px;
+  padding: 10px;
+  background: var(--secondary);
+  border-radius: 10px;
+}
+
+.mentorConnect__insufficientCredits {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 10px;
+  color: #ef4444;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.mentorConnect__modalActions {
+  display: flex;
+  gap: 10px;
+}
+
+.mentorConnect__backBtn {
+  flex: 0.4;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: none;
+  color: var(--foreground);
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mentorConnect__backBtn:hover {
+  background: var(--secondary);
+}
+
+.mentorConnect__confirmBtn {
+  flex: 0.6;
+}
+
+/* Success */
+.mentorConnect__success {
+  text-align: center;
+}
+
+.mentorConnect__successIcon {
+  margin-bottom: 16px;
+  animation: bounceIn 0.5s ease;
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.mentorConnect__success h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 12px;
+  color: #10b981;
+}
+
+.mentorConnect__success p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.mentorConnect__creditsLeft {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin-bottom: 20px !important;
+}
+
+.mentorConnect__doneBtn {
+  background: #10b981;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+/* Earn Credits Modal */
+.mentorConnect__earnModal {
+  max-width: 420px;
+}
+
+.mentorConnect__earnTitle {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.mentorConnect__earnSubtitle {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  margin: 0 0 20px;
+}
+
+.mentorConnect__earnOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mentorConnect__earnOption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.mentorConnect__earnOption:hover {
+  border-color: #7c3aed;
+  background: rgba(124, 58, 237, 0.03);
+  transform: translateX(4px);
+}
+
+.mentorConnect__earnIcon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.mentorConnect__earnInfo {
+  flex: 1;
+}
+
+.mentorConnect__earnInfo h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 2px;
+  color: var(--foreground);
+}
+
+.mentorConnect__earnInfo p {
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.mentorConnect__earnReward {
+  font-size: 18px;
+  font-weight: 700;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  padding: 6px 14px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* ========================================
+   STUDENT MODE OVERRIDES
+   ======================================== */
+
+.student-active .mentorConnect__header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.student-active .mentorConnect__creditsInfo {
+  border: none;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+}
+
+.student-active .mentorConnect__creditsCount {
+  color: #6366f1;
+}
+
+.student-active .mentorConnect__earnBtn {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.student-active .mentorConnect__earnBtn:hover {
+  background: #6366f1;
+  color: white;
+}
+
+.student-active .mentorConnect__catTab.active {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border-color: #6366f1;
+}
+
+.student-active .mentorConnect__catTab:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.student-active .mentorCard {
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+}
+
+.student-active .mentorCard:hover {
+  box-shadow: 0 12px 40px rgba(102, 126, 234, 0.25);
+}
+
+.student-active .mentorCard__expertiseTag {
+  background: rgba(99, 102, 241, 0.1);
+  color: #6366f1;
+}
+
+.student-active .mentorCard__bookBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.student-active .mentorConnect__sessionCard.selected {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.student-active .mentorConnect__creditCost {
+  color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.student-active .mentorConnect__nextBtn,
+.student-active .mentorConnect__confirmBtn {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.student-active .mentorConnect__slot.selected {
+  background: #6366f1;
+  border-color: #6366f1;
+}
+
+.student-active .mentorConnect__slot:hover {
+  border-color: #6366f1;
+  color: #6366f1;
+}
+
+.student-active .mentorConnect__modal {
+  border: none;
+  box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+}
+
+.student-active .mentorConnect__earnOption:hover {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.03);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mentorConnect__grid {
+    grid-template-columns: 1fr;
+  }
+  .mentorConnect__sessionTypes {
+    grid-template-columns: 1fr;
+  }
+  .mentorConnect__slotsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

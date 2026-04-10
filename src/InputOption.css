@@ -1,17 +1,28 @@
-.InputOption {
+.inputOption {
   display: flex;
   align-items: center;
-  margin-top: 15px;
-  color: gray;
-  padding: 10px;
+  gap: 6px;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--muted-foreground);
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-.InputOption:hover {
-  background-color: whitesmoke;
-  border-radius: 10px;
+.inputOption:hover {
+  background-color: var(--secondary);
+  color: var(--foreground);
 }
 
-.InputOption > h4 {
-  margin-left: 5px;
+.inputOption svg {
+  width: 20px;
+  height: 20px;
 }
+
+.inputOption--blue svg { color: #378fe9; }
+.inputOption--orange svg { color: #c37d16; }
+.inputOption--green svg { color: #0a6640; }
+.inputOption--red svg { color: #e16745; }

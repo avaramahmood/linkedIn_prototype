@@ -1,0 +1,380 @@
+.skillAnalysis {
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+.skillAnalysis__header {
+  background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+  padding: 24px 32px 36px;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.skillAnalysis__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.skillAnalysis__back:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.skillAnalysis__headerContent h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.skillAnalysis__headerContent p {
+  font-size: 14px;
+  opacity: 0.85;
+  margin: 0;
+}
+
+.skillAnalysis__body {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.skillAnalysis__results {
+  animation: skillFadeIn 0.4s ease backwards;
+}
+
+@keyframes skillFadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.skillAnalysis__analyzeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #0a66c2, #004182);
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+
+.skillAnalysis__analyzeBtn:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.skillAnalysis__analyzeBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.skillAnalysis__spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.skillAnalysis__error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+  color: #dc2626;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.skillAnalysis__overviewCard {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+}
+
+.skillAnalysis__overviewTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.skillAnalysis__levelBadge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 2px solid;
+  background: var(--secondary);
+}
+
+.skillAnalysis__levelEmoji {
+  font-size: 28px;
+  line-height: 1;
+}
+
+.skillAnalysis__levelLabel {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.skillAnalysis__domain {
+  display: block;
+  font-size: 13px;
+  color: var(--muted-foreground);
+  margin-top: 2px;
+}
+
+.skillAnalysis__avgScore {
+  text-align: center;
+}
+
+.skillAnalysis__avgNumber {
+  display: block;
+  font-size: 42px;
+  font-weight: 700;
+  color: #0a66c2;
+  line-height: 1;
+}
+
+.skillAnalysis__avgLabel {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+}
+
+.skillAnalysis__summary {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--foreground);
+  margin: 0;
+  padding: 14px;
+  background: var(--secondary);
+  border-radius: 8px;
+}
+
+.skillAnalysis__skillsCard {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+}
+
+.skillAnalysis__skillsTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 20px;
+}
+
+.skillAnalysis__skillsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.skillBar {
+  animation: skillSlideIn 0.5s ease backwards;
+}
+
+@keyframes skillSlideIn {
+  from { opacity: 0; transform: translateX(-12px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.skillBar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.skillBar__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.skillBar__score {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.skillBar__track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--secondary);
+  overflow: hidden;
+}
+
+.skillBar__fill {
+  height: 100%;
+  border-radius: 4px;
+  width: 0;
+  animation: fillBar 1s ease-out forwards;
+  animation-delay: inherit;
+}
+
+@keyframes fillBar {
+  from { width: 0; }
+  to { width: var(--target-width); }
+}
+
+.skillBar__evidence {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin: 6px 0 0;
+  line-height: 1.4;
+  font-style: italic;
+}
+
+.skillAnalysis__recsCard {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  border: 1px solid var(--border);
+}
+
+.skillAnalysis__recsTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 16px;
+}
+
+.skillAnalysis__recsTitle svg {
+  color: #f59e0b;
+}
+
+.skillAnalysis__recsList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.skillAnalysis__recItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--secondary);
+  font-size: 14px;
+  color: var(--foreground);
+}
+
+.skillAnalysis__recNum {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #0a66c2;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.skillAnalysis__empty {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.skillAnalysis__emptyIcon {
+  font-size: 48px;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.skillAnalysis__empty h4 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--foreground);
+  margin: 0 0 8px;
+}
+
+.skillAnalysis__empty p {
+  font-size: 14px;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  max-width: 400px;
+  margin: 0 auto 16px;
+}
+
+.skillAnalysis__goHome {
+  display: inline-block;
+  padding: 10px 24px;
+  background: #0a66c2;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.skillAnalysis__goHome:hover {
+  background: #004182;
+}
+
+/* Student Mode */
+.student-active .skillAnalysis__header {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.student-active .skillAnalysis__analyzeBtn {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.student-active .skillAnalysis__avgNumber {
+  color: #10b981;
+}
+
+.student-active .skillAnalysis__recNum {
+  background: #10b981;
+}

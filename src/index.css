@@ -1,16 +1,607 @@
-* {
-  margin: 0;
-}
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #f3f2ef;
+  --foreground: rgba(0, 0, 0, 0.9);
+  --card: #ffffff;
+  --card-foreground: rgba(0, 0, 0, 0.9);
+  --popover: #ffffff;
+  --popover-foreground: rgba(0, 0, 0, 0.9);
+  --primary: #0a66c2;
+  --primary-foreground: #ffffff;
+  --secondary: #f3f2ef;
+  --secondary-foreground: rgba(0, 0, 0, 0.6);
+  --muted: #f3f2ef;
+  --muted-foreground: rgba(0, 0, 0, 0.6);
+  --accent: #057642;
+  --accent-foreground: #ffffff;
+  --destructive: #da3a01;
+  --destructive-foreground: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --input: rgba(0, 0, 0, 0.08);
+  --ring: #0a66c2;
+  --chart-1: #0a66c2;
+  --chart-2: #057642;
+  --chart-3: #cf0a73;
+  --chart-4: #e68523;
+  --chart-5: #378fe9;
+  --radius: 8px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.3s;
+  border-radius: 24px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background-color: #00a0dc;
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+/* ============================================
+   STUDENT MODE - Complete UI Overhaul (GREEN)
+   ============================================ */
+.student-active {
+  --background: #f0fdf4;
+  --foreground: #1a2332;
+  --card: #ffffff;
+  --card-foreground: #1a2332;
+  --popover: #ffffff;
+  --popover-foreground: #1a2332;
+  --primary: #10b981;
+  --primary-foreground: #ffffff;
+  --secondary: #ecfdf5;
+  --secondary-foreground: #059669;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #10b981;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #d1fae5;
+  --input: #d1fae5;
+  --ring: #10b981;
+  --chart-1: #10b981;
+  --chart-2: #059669;
+  --chart-3: #f59e0b;
+  --chart-4: #06b6d4;
+  --chart-5: #ec4899;
+  --radius: 12px;
+}
+
+/* Student Mode - Header */
+.student-active .header {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border-bottom: none;
+  box-shadow: 0 2px 12px rgba(16, 185, 129, 0.25);
+}
+
+.student-active .header__logo {
+  filter: brightness(0) invert(1);
+}
+
+.student-active .header__search {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.student-active .header__search input {
+  color: white;
+}
+
+.student-active .header__search input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.student-active .header__search-icon {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.student-active .header__navItem {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.student-active .header__navItem:hover {
+  color: white;
+}
+
+.student-active .header__navItem::after {
+  background-color: white;
+}
+
+.student-active .headerOption {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.student-active .headerOption:hover {
+  color: white;
+}
+
+.student-active .headerOption__title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.student-active .headerOption:hover .headerOption__title {
+  color: white;
+}
+
+.student-active .header__work {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.student-active .header__work:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.student-active .header__workLabel {
+  color: white;
+}
+
+.student-active .header__divider {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.student-active .header__dropdown {
+  background-color: white;
+  border: none;
+  box-shadow: 0 10px 40px rgba(16, 185, 129, 0.3);
+}
+
+.student-active .header__dropdownHeader {
+  border-bottom-color: #d1fae5;
+}
+
+.student-active .header__dropdownHeader h4 {
+  color: #1a2332;
+}
+
+.student-active .header__dropdownHeader p {
+  color: #64748b;
+}
+
+.student-active .header__dropdownItem {
+  color: #1a2332;
+}
+
+.student-active .header__dropdownItem:hover {
+  background-color: #ecfdf5;
+  color: #10b981;
+}
+
+.student-active .header__studentToggle {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+
+.student-active .header__studentLabel {
+  color: white;
+  font-weight: 600;
+}
+
+/* Student Mode - Toggle Switch */
+.student-active .toggle-switch input:checked + .toggle-slider {
+  background-color: #34d399;
+}
+
+/* Student Mode - App Body */
+.student-active .app {
+  background: linear-gradient(180deg, #10b981 0%, #047857 100%);
+  min-height: 100vh;
+}
+
+.student-active .app__body {
+  padding-top: 80px;
+}
+
+/* Student Mode - Sidebar */
+.student-active .sidebar {
+  top: 80px;
+}
+
+.student-active .sidebar__card {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+  overflow: hidden;
+}
+
+.student-active .sidebar__profile-bg {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  height: 80px;
+}
+
+.student-active .sidebar__avatar {
+  border: 4px solid white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.student-active .sidebar__name {
+  color: #1a2332;
+  font-weight: 700;
+}
+
+.student-active .sidebar__headline {
+  color: #64748b;
+}
+
+.student-active .sidebar__stats {
+  border-top: none;
+}
+
+.student-active .sidebar__statLabel {
+  color: #64748b;
+}
+
+.student-active .sidebar__statValue {
+  color: #10b981;
+}
+
+.student-active .sidebar__cardTitle {
+  border-bottom: none;
+  color: #1a2332;
+}
+
+.student-active .sidebar__cardTitle span {
+  color: #10b981;
+}
+
+.student-active .sidebar__recentItem:hover {
+  background-color: #ecfdf5;
+  color: #10b981;
+}
+
+.student-active .sidebar__groupItem:hover {
+  background-color: #ecfdf5;
+}
+
+.student-active .sidebar__cardFooter {
+  border-top: none;
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.student-active .sidebar__cardFooter span {
+  color: white;
+  font-weight: 600;
+}
+
+.student-active .sidebar__discoverTitle {
+  color: #1a2332;
+  border-top: none;
+}
+
+.student-active .sidebar__discoverItem:hover {
+  background-color: #ecfdf5;
+}
+
+.student-active .sidebar__discoverItem svg {
+  color: #10b981;
+}
+
+/* Student Mode - Feed */
+.student-active .feed__composer {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.student-active .feed__composerButton {
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  color: #64748b;
+}
+
+.student-active .feed__composerButton:hover {
+  border-color: #10b981;
+  color: #10b981;
+  background: #ecfdf5;
+}
+
+.student-active .feed__sortBar {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.student-active .feed__modal {
+  background: white;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+}
+
+.student-active .feed__modalPost {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border: none;
+}
+
+.student-active .feed__modalPost:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Student Mode - Post */
+.student-active .post {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.student-active .post__name {
+  color: #1a2332;
+}
+
+.student-active .post__name:hover {
+  color: #10b981;
+}
+
+.student-active .post__headline {
+  color: #64748b;
+}
+
+.student-active .post__time {
+  color: #94a3b8;
+}
+
+.student-active .post__action:hover {
+  background-color: #ecfdf5;
+  color: #10b981;
+}
+
+/* Student Mode - Widgets */
+.student-active .widgets {
+  top: 80px;
+}
+
+.student-active .widgets__card {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.student-active .widgets__title {
+  color: #1a2332;
+}
+
+.student-active .widgets__itemIcon {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.student-active .widgets__itemRight h4 {
+  color: #1a2332;
+}
+
+.student-active .widgets__adButton {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.student-active .widgets__adButton:hover {
+  background: #ecfdf5;
+}
+
+/* Student Mode - Login */
+.student-active .login {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.student-active .login__card {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+}
+
+.student-active .login__logo {
+  filter: brightness(0) invert(1);
+}
+
+.student-active .login__title {
+  color: #1a2332;
+}
+
+.student-active .login__subtitle {
+  color: #64748b;
+}
+
+.student-active .login__submit {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border: none;
+}
+
+.student-active .login__submit:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+.student-active .login__divider::before,
+.student-active .login__divider::after {
+  background-color: #d1fae5;
+}
+
+.student-active .login__new span {
+  color: #10b981;
+}
+
+/* Student Mode - Profile */
+.student-active .profile {
+  background: #f0fdf4;
+}
+
+.student-active .profile__header {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.student-active .profile__header h1 {
+  color: white;
+}
+
+.student-active .profile__back {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.student-active .profile__back:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.student-active .profile__section {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.student-active .profile__section h2 {
+  color: #1a2332;
+  border-bottom: none;
+}
+
+.student-active .profile__save {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+  border: none;
+}
+
+.student-active .profile__generate {
+  border-color: #10b981;
+  color: #10b981;
+}
+
+.student-active .profile__generate:hover {
+  background: #ecfdf5;
+}
+
+.student-active .profile__backBtn {
+  border-color: #10b981;
+  color: #10b981;
+  background: white;
+}
+
+.student-active .profile__timelineCard {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
+}
+
+.student-active .profile__roadmapContent:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.25);
+}
+
+.student-active .profile__roadmapDot {
+  background: linear-gradient(135deg, #10b981 0%, #047857 100%);
+}
+
+.student-active .profile__roadmapLine {
+  background: linear-gradient(to bottom, #10b981, #047857);
+}
+
+.student-active .profile__roadmapPhase {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+/* Student Mode - Interactive Elements */
+.student-active button:focus-visible {
+  outline-color: #10b981;
+}
+
+.student-active input:focus,
+.student-active textarea:focus {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+/* Student Mode - InputOption */
+.student-active .inputOption:hover {
+  background-color: #ecfdf5;
+  color: #10b981;
+}
+
+/* Student Mode - HeaderOption */
+.student-active .headerOption.active::after {
+  background-color: white;
 }

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(mv App.js App.jsx)",
+      "Bash(mv Feed.js Feed.jsx)",
+      "Bash(mv Header.js Header.jsx)",
+      "Bash(mv HeaderOption.js HeaderOption.jsx)",
+      "Bash(mv InputOption.js InputOption.jsx)",
+      "WebFetch(domain:minimax-algeng-chat-tts-us.oss-us-east-1.aliyuncs.com)",
+      "Bash(curl:*)",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); print\\(data['choices'][0]['message']['content']\\)\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); print\\(json.dumps\\(data, indent=2\\)\\)\")",
+      "Bash(npx tailwindcss:*)"
+    ]
+  }
+}
