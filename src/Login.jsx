@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { login } from "./features/userSlice.js";
 import "./Login.css";
@@ -6,36 +6,26 @@ import "./Login.css";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [users, setUsers] = useState([]);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetch("/users.json")
-      .then((res) => res.json())
-      .then((data) => setUsers(data))
-      .catch((err) => console.error("Failed to load users:", err));
-  }, []);
 
   const loginToApp = (e) => {
     e.preventDefault();
 
-    const user = users.find(
-      (u) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
-    );
-
-    if (user) {
-      const name = user.email.split("@")[0].replace(".", " ");
-      const displayName = name.charAt(0).toUpperCase() + name.slice(1);
-      dispatch(
-        login({
-          displayName: displayName,
-          email: user.email,
-          photoUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=0a66c2&color=fff&size=128`,
-        })
-      );
-    } else {
-      alert("Invalid email or password");
+    if (!email || !password) {
+      alert("Please enter both email and password");
+      return;
     }
+
+    const name = email.split("@")[0].replace(/[._]/g, " ");
+    const displayName = name.charAt(0).toUpperCase() + name.slice(1);
+
+    dispatch(
+      login({
+        displayName: displayName,
+        email: email,
+        photoUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=0a66c2&color=fff&size=128`,
+      })
+    );
   };
 
   return (
